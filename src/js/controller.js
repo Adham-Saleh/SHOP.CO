@@ -71,7 +71,7 @@ const fetchHomePageTopSellingProducts = function () {
 };
 
 const fetchHomePageMightLikeProducts = function () {
-  products = model.getProductBy(currentFocusedProduct.category);
+  const products = model.getProductBy(currentFocusedProduct.category);
   ProductsMightLikeView.productsMarkup(products);
 };
 
