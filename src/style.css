@@ -1,0 +1,1087 @@
+@font-face {
+  font-family: "Integral CF";
+  src: url(fonts/Fontspring-DEMO-integralcf-bold.otf);
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url(fonts/Satoshi-Regular.otf);
+}
+
+@font-face {
+  font-family: "Satoshi BD";
+  src: url(fonts/Satoshi-Bold.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Integral CF", sans-serif;
+}
+
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+    border-left: 4px solid #f0f0f0;
+  }
+  33.3% {
+    transform: rotate(360deg);
+    border-top: 4px solid #f0f0f0;
+  }
+  66.6% {
+    transform: rotate(360deg);
+    border-right: 4px solid #f0f0f0;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-bottom: 4px solid #f0f0f0;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.spinner {
+  width: 46px;
+  height: 46px;
+  border: 4px solid black;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+  transition: all 1s;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+}
+
+.msg-content {
+  border-radius: 2px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Satoshi';
+  font-size: 20px
+}
+
+.msg-content span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: rgb(133, 133, 133);
+}
+
+.error span {
+  color: red;
+}
+
+
+/*header*/
+.offer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  font-family: "Satoshi";
+}
+
+.action {
+  display: none;
+}
+
+.offer a {
+  color: white;
+  cursor: pointer;
+}
+
+nav {
+  margin: auto 10px;
+  padding: 17px 5px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-logo {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.brand-name {
+  font-size: 25.2px;
+  font-weight: 700;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-menu-btn {
+  background-color: transparent;
+  border: none;
+  transition: all .2s;
+}
+
+.nav-btns svg {
+  cursor: pointer;
+}
+
+.nav-options {
+  display: none;
+  position: relative;
+}
+
+@keyframes cart-animation {
+  0% {
+    filter: blur(50px);
+  }
+  100%{
+    filter: blur(0);
+  }
+}
+
+.cart-container {
+  position: relative;
+}
+
+.cart-items-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-family: 'Satoshi';
+  background-color: rgb(31, 31, 241);
+  box-shadow: 0px 0px 5px rgb(0, 0, 105);
+  width: 12px;
+  height: 12px;
+  font-size: 8px;
+  top: 50%;
+  right: 0;
+  border-radius: 100%;
+  color: white;
+  animation: cart-animation .5s ease-in-out;
+}
+
+/*nav for lg devices*/
+@media (min-width: 1370px) {
+  nav {
+    margin: auto 50px;
+  }
+  .nav-logo .bi-list,
+  .nav-btns .bi-search {
+    display: none;
+  }
+  .offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  .action {
+    display: flex;
+    position: relative;
+    left: 400;
+    cursor: pointer;
+  }
+  .nav-options {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .menu_options {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+    align-items: center;
+    font-family: "Satoshi";
+  }
+  .menu_options li {
+    cursor: pointer;
+  }
+  .search-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-icon {
+    background-color: #f0f0f0;
+    padding: 9px;
+    border-radius: 20px 0px 0px 20px;
+  }
+  .search input {
+    height: 40px;
+    width: 750px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 0px 20px 20px 0px;
+  }
+  .search input:focus {
+    outline: none;
+  }
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+@keyframes nav-menu-trans {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: "Satoshi BD";
+  padding: 40px;
+  z-index: 1;
+  animation: nav-menu-trans 0.5s ease forwards;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+}
+
+.nav-menu ul li {
+  margin-top: 20px;
+}
+
+.nav-menu-hr {
+  height: 0;
+  margin: 20px auto;
+}
+
+.logo {
+  font-family: "Integral CF";
+}
+
+.copy-rights {
+  font-size: 12px;
+}
+
+@keyframes shop-menu-animation {
+  0% {
+    transform: translateY(-3%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.shop-menu {
+  font-family: "Satoshi BD";
+  padding: 10px;
+  width: 250px;
+  background-color: white;
+  transition: ease-in-out .1s;
+  animation: shop-menu-animation .2s linear;
+}
+
+.shop-menu ul li {
+  margin-top: 10px;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1370px) {
+  .shop-menu {
+    position: absolute;
+  }
+}
+
+.out-of-port {
+  filter: blur(50px);
+}
+
+/*main*/
+
+/*section1 landing-section*/
+
+.landing-section {
+  flex-wrap: wrap;
+  background: #f2f0f1;
+  justify-content: center;
+}
+
+.landing-section h1 {
+  font-size: 36px;
+  margin: 15px 0px 10px 0px;
+}
+
+.landing-section p {
+  font-family: "Satoshi";
+  color: #00000099;
+  font-size: 14px;
+}
+
+.landing-action {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 18px 0px 8px 0px;
+}
+
+.landing-content {
+  padding: 12px;
+}
+
+.shop-btn {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  width: 358px;
+  height: 52px;
+  border-radius: 62px;
+  border: none;
+  padding: 16px 54px 16px 54px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.common-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 18px 0;
+  font-family: 'Satoshi';
+}
+
+.common-info p,
+.info-analytics {
+  font-size: 24px;
+  font-weight: 700;
+  color: black;
+  padding: 10px 25px;
+}
+
+.common-info span {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+hr {
+  height: 52px;
+  border: 1px solid #0000001a;
+}
+
+.line {
+  display: none;
+}
+
+.happy-customers {
+  width: 100%;
+  text-align: center;
+}
+
+.landing-seciotn--img {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-container {
+  position: relative;
+}
+
+.landing-img {
+  width: 390px;
+}
+
+.star1 {
+  position: absolute;
+  top: 40px;
+  left: 270px;
+}
+
+.star2 {
+  position: absolute;
+  top: 137px;
+  left: 27px;
+}
+
+.brands {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 15px;
+}
+
+@media (min-width: 1370px) {
+  .landing-section {
+    display: flex;
+    justify-content: center;
+  }
+  .landing-content {
+    max-width: 50%;
+  }
+  .landing-seciotn--img {
+    max-width: 50%;
+  }
+  .landing-section h1 {
+    max-width: 577px;
+    font-size: 64px;
+  }
+  .landing-section p {
+    max-width: 545px;
+    font-size: 16px;
+  }
+  .landing-content {
+    padding: 50px;
+  }
+  .landing-action {
+    width: 210px;
+    height: 52px;
+    justify-content: left;
+  }
+
+  .landing-img {
+    width: 800px;
+    height: 663px;
+  }
+  .star1 {
+    top: 86px;
+    left: 600px;
+  }
+  .star2 {
+    top: 297px;
+    left: 80px;
+  }
+  .happy-customers {
+    width: auto;
+    text-align: left;
+  }
+  .line {
+    display: flex;
+  }
+  .common-info p {
+    font-size: 40px;
+  }
+  .common-info span {
+    font-size: 16px;
+  }
+  .brands {
+    padding: 30px;
+    justify-content: space-around;
+  }
+}
+
+/*section-2 new arrivals*/
+/*section-3 top selling*/
+
+.new-arrivals-section ,
+.top-selling-section {
+  transition: all .5s;
+}
+
+.new-arrivals-section h1,
+.top-selling-section h1 {
+  font-size: 32px;
+  text-align: center;
+  margin: 50px 0px 30px;
+}
+
+.products {
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  overflow-y: scroll;
+}
+
+.product {
+  cursor: pointer;
+  width: 198px;
+}
+
+.product-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product__img {
+  border-radius: 13.42px;
+  margin-bottom: 10px;
+  max-width: 198px;
+  max-height: 200.01px;
+}
+
+.product__name,
+.product__rate,
+.product__price {
+  font-family: "Satoshi";
+}
+
+.product-name {
+  max-width: 180px;
+}
+
+.product__name {
+  font-family: "Satoshi BD";
+  font-size: 16px;
+  max-width: 180px;
+}
+
+.product__rate {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin: 3px 0px;
+  gap: 8px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  font-family: "Satoshi";
+  gap: 5px;
+}
+
+.product__price {
+  font-family: "Satoshi BD";
+  font-size: 20px;
+}
+
+.product-sale__price {
+  font-family: "Satoshi BD";
+  color: gray;
+  text-decoration: line-through;
+  font-size: 20px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: black;
+}
+
+.sale {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ff33331a;
+  width: 42px;
+  height: 20px;
+  border-radius: 62px;
+  font-size: 10px;
+  color: #ff3333;
+}
+
+.new-arrivals-action,
+.top-selling-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Satoshi";
+  margin: 15px;
+}
+
+.view-all {
+  width: 358px;
+  height: 46px;
+  padding: 16px 54px;
+  gap: 12px;
+  border-radius: 62px;
+  border: 1px solid #0000001a;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.section-hr-container {
+  padding: 20px;
+}
+
+.section-hr {
+  height: 0;
+}
+
+@media (min-width: 882px) {
+  .products {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1370px) {
+  .product {
+    width: 295px;
+  }
+  .product__img {
+    max-width: 295px;
+    max-height: 298;
+  }
+  .product-name {
+    max-width: 225px;
+  }
+  .product__name {
+    font-size: 20px;
+  }
+  .product__rate {
+    font-size: 14px;
+  }
+
+  .product__price,
+  .product-sale__price {
+    font-size: 24px;
+  }
+
+  .sale {
+    font-size: 12px;
+  }
+
+  .view-all {
+    width: 218px;
+    height: 52px;
+  }
+
+  .section-hr-container {
+    padding: 50px;
+  }
+}
+
+/*section-4 Browse section*/
+
+.browse-section {
+  padding: 10px;
+}
+
+.browse-content {
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 38px 15px 27px 15px;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  gap: 20px;
+}
+
+.browse-section h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.browse-option {
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.browse-option-heading {
+  font-family: "Satoshi";
+  font-size: 24px;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+}
+
+.browse-option-img {
+  width: 300px;
+  height: 190px;
+  border-radius: 20px;
+}
+
+@media (min-width: 1370px) {
+  .formal-img,
+  .party-img {
+    width: 684px;
+    object-fit: fill;
+  }
+  .browse-content {
+    width: 1239px;
+    padding-bottom: 50px;
+  }
+  .browse-section {
+    display: flex;
+    justify-content: center;
+  }
+  .options {
+    margin-top: 45px;
+  }
+}
+
+/*section-5: review-section*/
+
+.review-section {
+  margin-top: 45px;
+}
+
+.review-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px;
+}
+
+.slide-arw-btns {
+  display: flex;
+  gap: 15px;
+}
+
+.slide-right-arr,
+.slide-left-arr {
+  background-color: transparent;
+  border: none;
+}
+
+.slide-arw-btns svg {
+  cursor: pointer;
+}
+
+.review-section-heading h1 {
+  font-size: 32px;
+}
+
+.users-review {
+  display: flex;
+  gap: 16px;
+  padding: 10px;
+  overflow: hidden;
+  font-family: "Satoshi";
+}
+
+.reviewer-deatils {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 1.78px;
+  align-items: center;
+  margin: 3px 0px;
+}
+
+.reviewer-deatils p {
+  font-size: 14px;
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  transition: all 1s;
+}
+
+.review-content {
+  display: flex;
+  align-items: center;
+  width: 340px;
+  height: 200px;
+  padding: 24px;
+  border: 1px solid #0000001a;
+  border-radius: 20px;
+}
+
+@media (min-width: 1370px) {
+  .review-content {
+    width: 400px;
+    height: 220px;
+  }
+  .reviewer-deatils {
+    font-size: 20px;
+  }
+  .reviewer-deatils p {
+    font-size: 16px;
+  }
+  .review-section-heading {
+    margin: auto 120px;
+  }
+  .intersecting {
+    filter: blur(2px);
+  }
+}
+
+/*footer*/
+
+.newslist {
+  position: absolute;
+  top: -150;
+  padding: 10px;
+}
+
+.newslist-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 293px;
+  padding: 20px;
+}
+
+.newslist-title {
+  font-size: 32px;
+}
+
+.newslist-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.email-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px 12px 16px;
+  background-color: white;
+  height: 42px;
+  border-radius: 62px 0 0 62px;
+}
+
+.newslist-email {
+  width: 240px;
+  height: 42px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 0 62px 62px 0;
+  border: none;
+}
+
+.newslist-email:focus {
+  outline: none;
+}
+
+.sunbscribe-btn {
+  width: 291px;
+  height: 42px;
+  border: none;
+  padding: 12px 16px 12px 16px;
+  border-radius: 62px;
+  font-size: 14px;
+  font-family: "Satoshi BD";
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+@media (min-width: 820px) {
+  .newslist-content {
+    height: 180px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .newslist-title-container {
+    max-width: 551px;
+  }
+}
+
+@media (min-width: 1370px) {
+  .newslist {
+    position: absolute;
+    top: -105;
+    padding: 10px;
+  }
+  .newslist-content {
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    height: 180px;
+    padding: 8px 90px;
+  }
+
+  .newslist-title-container {
+    max-width: 551px;
+  }
+
+  .newslist-title {
+    font-size: 40px;
+  }
+
+  .email-icon {
+    height: 46px;
+  }
+
+  .newslist-email {
+    width: 278px;
+    height: 46px;
+    padding: 12px 16px 12px 16px;
+    border-radius: 0 62px 62px 0;
+    border: none;
+  }
+
+  .sunbscribe-btn {
+    width: 329px;
+    height: 46px;
+  }
+}
+
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  background-color: #f0f0f0;
+  margin-top: 180px;
+}
+
+.page-footer {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.ending {
+  padding: 10px 15px 0px 15px;
+  margin-top: 185px;
+}
+
+.ending p {
+  font-family: "Satoshi";
+  margin: 10px 0px 20px 0px;
+  font-size: 14px;
+}
+
+.ending h2 {
+  font-size: 28.85px;
+}
+
+.social-media a {
+  text-decoration: none;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+.company {
+  padding: 15px;
+}
+
+.about-title {
+  font-family: "Satoshi BD";
+  color: black;
+}
+
+.company ul {
+  font-family: "Satoshi";
+  list-style-type: none;
+  color: #00000099;
+  font-size: 14px;
+}
+
+.company li {
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.help {
+  margin-left: 50px;
+}
+
+.payments {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-family: "Satoshi";
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.payment-method {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 39.96px;
+  height: 25.74px;
+  border-radius: 4.61px;
+  background-color: white;
+  border: 0.61 solid #d6dce5;
+  margin-top: 15px;
+  margin-bottom: 115px;
+}
+
+.footer-hr {
+  flex-grow: 1;
+  height: 0;
+  margin: auto 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 650px) {
+  footer {
+    margin-top: 220px;
+  }
+  .ending {
+    margin-top: 200px;
+  }
+
+  .page-footer {
+    justify-content: space-around;
+  }
+  .help {
+    margin-left: 0;
+  }
+  .payments {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 95px;
+    margin-bottom: 115px;
+  }
+  .ending h2 {
+    font-size: 33.45px;
+  }
+  .ending p {
+    max-width: 248px;
+  }
+  .company ul {
+    font-size: 16px;
+    margin-top: 200px;
+  }
+  .about {
+    column-gap: 80px;
+  }
+  .payment-method {
+    margin-bottom: 0px;
+  }
+  .footer-hr {
+    width: 500px;
+    margin: auto 98px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+}

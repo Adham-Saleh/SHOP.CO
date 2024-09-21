@@ -1,0 +1,863 @@
+@font-face {
+  font-family: "Integral CF";
+  src: url(fonts/Fontspring-DEMO-integralcf-bold.otf);
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url(fonts/Satoshi-Regular.otf);
+}
+
+@font-face {
+  font-family: "Satoshi BD";
+  src: url(fonts/Satoshi-Bold.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Integral CF", sans-serif;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+    border-left: 4px solid #f0f0f0;
+  }
+  33.3% {
+    transform: rotate(360deg);
+    border-top: 4px solid #f0f0f0;
+  }
+  66.6% {
+    transform: rotate(360deg);
+    border-right: 4px solid #f0f0f0;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-bottom: 4px solid #f0f0f0;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.spinner {
+  width: 46px;
+  height: 46px;
+  border: 4px solid black;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+  transition: all 1s;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+}
+
+.msg-content {
+  border-radius: 2px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Satoshi";
+  font-size: 20px;
+}
+
+.msg-content span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: rgb(133, 133, 133);
+}
+
+.error span {
+  color: red;
+}
+
+/*header*/
+.offer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  font-family: "Satoshi";
+}
+
+.action {
+  display: none;
+}
+
+.offer a {
+  color: white;
+  cursor: pointer;
+}
+
+nav {
+  margin: auto 10px;
+  padding: 17px 5px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-logo {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.brand-name {
+  font-size: 25.2px;
+  font-weight: 700;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-menu-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.nav-btns svg {
+  cursor: pointer;
+}
+
+.nav-options {
+  display: none;
+  position: relative;
+}
+
+@keyframes cart-animation {
+  0% {
+    filter: blur(50px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+.cart-container {
+  position: relative;
+}
+
+.cart-items-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-family: "Satoshi";
+  background-color: rgb(31, 31, 241);
+  box-shadow: 0px 0px 5px rgb(0, 0, 105);
+  width: 12px;
+  height: 12px;
+  font-size: 8px;
+  top: 50%;
+  right: 0;
+  border-radius: 100%;
+  color: white;
+  animation: cart-animation 0.5s ease-in-out;
+}
+
+/*nav for lg devices*/
+@media (min-width: 1370px) {
+  nav {
+    margin: auto 50px;
+  }
+  .nav-logo .bi-list,
+  .nav-btns .bi-search {
+    display: none;
+  }
+  .offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  .action {
+    display: flex;
+    position: relative;
+    left: 400;
+    cursor: pointer;
+  }
+  .nav-options {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .menu_options {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+    align-items: center;
+    font-family: "Satoshi";
+  }
+  .menu_options li {
+    cursor: pointer;
+  }
+  .search-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-icon {
+    background-color: #f0f0f0;
+    padding: 9px;
+    border-radius: 20px 0px 0px 20px;
+  }
+  .search input {
+    height: 40px;
+    width: 750px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 0px 20px 20px 0px;
+  }
+  .search input:focus {
+    outline: none;
+  }
+}
+
+@keyframes nav-menu-trans {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: "Satoshi BD";
+  padding: 40px;
+  z-index: 1;
+  animation: nav-menu-trans 0.5s ease forwards;
+}
+
+.menu_options a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+}
+
+.nav-menu ul li {
+  margin-top: 20px;
+}
+
+.nav-menu-hr {
+  height: 0;
+  margin: 20px auto;
+}
+
+.logo {
+  font-family: "Integral CF";
+}
+
+.copy-rights {
+  font-size: 12px;
+}
+
+.shop-menu {
+  font-family: "Satoshi BD";
+  padding: 10px;
+  width: 250px;
+  background-color: white;
+}
+
+.shop-menu ul li {
+  margin-top: 10px;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.nav-menu a {
+  color: black;
+  text-decoration: none;
+}
+
+@media (min-width: 1370px) {
+  .shop-menu {
+    position: absolute;
+  }
+}
+
+.path {
+  font-family: "Satoshi";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: #00000099;
+  font-size: 14px;
+  margin: 10px;
+}
+
+.current-path {
+  color: black;
+}
+
+.section-hr {
+  padding: auto 20px;
+}
+
+.section-hr hr {
+  border: 1px solid #0000001a;
+}
+
+.cart {
+  margin: auto 20px;
+}
+
+.cart-heading {
+  font-size: 32px;
+}
+
+.cart-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.cart-products {
+  width: 358px;
+  border: 1px solid #0000001a;
+  border-radius: 20px;
+  padding: 14px;
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Satoshi";
+}
+
+.product-img img {
+  max-width: 99px;
+  max-height: 99px;
+  border-radius: 8.66px;
+}
+
+.product-title {
+  display: flex;
+  width: 181px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Satoshi BD";
+}
+
+.delete-product-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.increase-btn,
+.decrease-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.product-information {
+  font-size: 12px;
+}
+
+.product-information span {
+  color: #00000099;
+}
+
+.product-price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.price {
+  font-family: "Satoshi BD";
+  font-size: 20px;
+}
+
+.quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 62px;
+  padding: 14px 20px;
+  width: 105px;
+  height: 31px;
+  font-size: 14px;
+  font-family: "Satoshi BD";
+}
+
+.hr-container {
+  margin: 15px auto;
+}
+
+.hr-container hr {
+  border: 1px solid #0000001a;
+}
+
+.cart-summary {
+  border: 1px solid #0000001a;
+  border-radius: 20px;
+  width: 358px;
+  padding: 20px;
+  font-family: "Satoshi";
+}
+
+.summary-title {
+  font-family: "Satoshi BD";
+  font-size: 20px;
+}
+
+.order {
+  margin: 20px auto;
+}
+
+.order-info,
+.final-price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.summart-section-title {
+  color: #00000099;
+}
+
+.summary-section-price {
+  font-family: "Satoshi BD";
+}
+
+.summary-discount {
+  color: red;
+}
+
+.promo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.promo-code-input {
+  display: flex;
+  align-items: center;
+}
+
+.promo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 12px 16px;
+  height: 48px;
+  border-radius: 62px 0 0 62px;
+}
+
+.promo-input input {
+  width: 120px;
+  /* width: 165px; */
+  height: 48px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 0 62px 62px 0;
+}
+
+.promo-input input:focus {
+  outline: none;
+}
+
+.apply-btn {
+  width: 88px;
+  height: 48px;
+  border-radius: 62px;
+  padding: 12px 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes check-btn {
+  0% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+.bi-check-circle-fill {
+  animation: check-btn .5s ease-in-out;
+  transition: all .2s;
+}
+
+.checkout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 270px;
+  /* width: 318px; */
+  height: 54px;
+  padding: 16px 54px;
+  margin: 12px auto;
+  border-radius: 62px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1370px) {
+  .path {
+    font-size: 16px;
+    margin: 20px 140px;
+  }
+  .cart {
+    margin: auto 140px;
+  }
+  .cart-heading {
+    font-size: 40px;
+  }
+  .cart-product {
+    width: 667px;
+  }
+  .cart-products {
+    width: 715px;
+  }
+  .product-img img {
+    min-width: 124px;
+    min-height: 124px;
+  }
+  .product-title {
+    font-size: 20px;
+    width: 530px;
+  }
+  .product-information {
+    font-size: 14px;
+  }
+  .price {
+    font-size: 24px;
+  }
+  .summary-title {
+    font-size: 24px;
+  }
+  .order-info,
+  .final-price {
+    font-size: 20px;
+  }
+  .cart-summary {
+    width: 505px;
+    height: 458px;
+  }
+  .checkout-btn {
+    width: 457px;
+    height: 60px;
+  }
+  .apply-btn {
+    width: 119px;
+    height: 48px;
+  }
+  .promo-input input {
+    width: 270px;
+    height: 48px;
+  }
+}
+
+.newslist {
+  position: absolute;
+  top: -150;
+  padding: 10px;
+}
+
+.newslist-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 293px;
+  padding: 20px;
+}
+
+.newslist-title {
+  font-size: 32px;
+}
+
+.newslist-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.email-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px 12px 16px;
+  background-color: white;
+  height: 42px;
+  border-radius: 62px 0 0 62px;
+}
+
+.newslist-email {
+  width: 240px;
+  height: 42px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 0 62px 62px 0;
+  border: none;
+}
+
+.newslist-email:focus {
+  outline: none;
+}
+
+.sunbscribe-btn {
+  width: 291px;
+  height: 42px;
+  border: none;
+  padding: 12px 16px 12px 16px;
+  border-radius: 62px;
+  font-size: 14px;
+  font-family: "Satoshi BD";
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+@media (min-width: 820px) {
+  .newslist-content {
+    height: 180px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .newslist-title-container {
+    max-width: 551px;
+  }
+}
+
+@media (min-width: 1370px) {
+  .newslist {
+    position: absolute;
+    top: -105;
+    padding: 10px;
+  }
+  .newslist-content {
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    height: 180px;
+    padding: 8px 90px;
+  }
+
+  .newslist-title-container {
+    max-width: 551px;
+  }
+
+  .newslist-title {
+    font-size: 40px;
+  }
+
+  .email-icon {
+    height: 46px;
+  }
+
+  .newslist-email {
+    width: 278px;
+    height: 46px;
+    padding: 12px 16px 12px 16px;
+    border-radius: 0 62px 62px 0;
+    border: none;
+  }
+
+  .sunbscribe-btn {
+    width: 329px;
+    height: 46px;
+  }
+}
+
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  background-color: #f0f0f0;
+  margin-top: 180px;
+}
+
+.page-footer {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.ending {
+  padding: 10px 15px 0px 15px;
+  margin-top: 185px;
+}
+
+.ending p {
+  font-family: "Satoshi";
+  margin: 10px 0px 20px 0px;
+  font-size: 14px;
+}
+
+.ending h2 {
+  font-size: 28.85px;
+}
+
+.social-media a {
+  text-decoration: none;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+.company {
+  padding: 15px;
+}
+
+.about-title {
+  font-family: "Satoshi BD";
+  color: black;
+}
+
+.company ul {
+  font-family: "Satoshi";
+  list-style-type: none;
+  color: #00000099;
+  font-size: 14px;
+}
+
+.company li {
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.help {
+  margin-left: 50px;
+}
+
+.payments {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-family: "Satoshi";
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.payment-method {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 39.96px;
+  height: 25.74px;
+  border-radius: 4.61px;
+  background-color: white;
+  border: 0.61 solid #d6dce5;
+  margin-top: 15px;
+  margin-bottom: 115px;
+}
+
+.footer-hr {
+  flex-grow: 1;
+  height: 0;
+  margin: auto 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 650px) {
+  footer {
+    margin-top: 220px;
+  }
+  .ending {
+    margin-top: 200px;
+  }
+
+  .page-footer {
+    justify-content: space-around;
+  }
+  .help {
+    margin-left: 0;
+  }
+  .payments {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 95px;
+    margin-bottom: 115px;
+  }
+  .ending h2 {
+    font-size: 33.45px;
+  }
+  .ending p {
+    max-width: 248px;
+  }
+  .company ul {
+    font-size: 16px;
+    margin-top: 200px;
+  }
+  .about {
+    column-gap: 80px;
+  }
+  .payment-method {
+    margin-bottom: 0px;
+  }
+  .footer-hr {
+    width: 500px;
+    margin: auto 98px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+}
