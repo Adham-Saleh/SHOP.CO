@@ -13,6 +13,7 @@ import CartView from "./view/cartView/CartView.js";
 import CartSummaryView from "./view/cartView/CartSummaryView.js";
 import LandingView from "./view/LandingView.js";
 import SearchBarView from "./view/SearchBarView.js";
+import ProductAddToCartMsgView from "./view/singleProductView/ProductAddToCartMsgView.js";
 import * as Template from "../main-templates/footerTemplate.js";
 
 let cart = [];
@@ -128,6 +129,7 @@ const addToCart = function () {
   const temp = { ...currentFocusedProduct };
   !productExists ? cart.push(temp) : "";
   updateCart(cart);
+  ProductAddToCartMsgView.generateShopAddedMsg()
 };
 
 const updateCart = function (cart) {
@@ -158,7 +160,7 @@ const searchResults = function (searchInput) {
   if(!searchInput) return
   const { results: allProducts } = model.productsResults;
   const filter = allProducts.filter((product) =>
-    product.title.toLowerCase().includes(searchInput)
+    product.title.toLowerCase().includes(searchInput.toLowerCase())
   );
   SearchBarView.generateSearchResults(filter)
 };

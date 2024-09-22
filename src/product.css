@@ -180,10 +180,115 @@ nav {
   animation: cart-animation 0.5s ease-in-out;
 }
 
+/*nav for md devices*/
+@media (min-width: 768px) {
+  nav {
+    margin: auto 50px;
+    max-width: 100%;
+  }
+  .brand-name {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .nav-logo .bi-list,
+  .nav-btns .bi-search {
+    display: none;
+  }
+  .offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  .action {
+    display: flex;
+    position: relative;
+    left: 200;
+    cursor: pointer;
+  }
+  .nav-options {
+    display: flex;
+    max-width: 100%;
+    font-size: 12px;
+    justify-content: center;
+  }
+  .menu_options {
+    display: flex;
+    list-style-type: none;
+    gap: 15px;
+    align-items: center;
+    font-family: "Satoshi";
+  }
+  .menu_options li {
+    cursor: pointer;
+  }
+  .search-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .search-icon {
+    background-color: #f0f0f0;
+    padding: 9px;
+    border-radius: 20px 0px 0px 20px;
+  }
+  .search input {
+    height: 40px;
+    width: 300px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 0px 20px 20px 0px;
+  }
+  .search input:focus {
+    outline: none;
+  }
+  .search-results-container {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    top: 50;
+    left: 0;
+    z-index: 1;
+    transition: all 0.5s;
+    border-radius: 0 0 20px 20px;
+  }
+  .search-results {
+    display: grid;
+    gap: 20px;
+  }
+  .result {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .result img {
+    max-width: 90px;
+    border-radius: 14px;
+  }
+  .result .result-title {
+    font-family: "Satoshi BD";
+    font-size: 18px;
+  }
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
 /*nav for lg devices*/
 @media (min-width: 1370px) {
   nav {
     margin: auto 50px;
+  }
+  .brand-name {
+    font-size: 25.2px;
+    font-weight: 700;
   }
   .nav-logo .bi-list,
   .nav-btns .bi-search {
@@ -204,6 +309,7 @@ nav {
   .nav-options {
     display: flex;
     width: 100%;
+    font-size: 16px;
     justify-content: center;
   }
   .menu_options {
@@ -220,6 +326,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   .search-icon {
     background-color: #f0f0f0;
@@ -233,6 +340,9 @@ nav {
     background-color: #f0f0f0;
     border-radius: 0px 20px 20px 0px;
   }
+  .search input:focus {
+    outline: none;
+  }
   .search-results-container {
     display: flex;
     justify-content: flex-start;
@@ -243,12 +353,12 @@ nav {
     top: 50;
     left: 0;
     z-index: 1;
-    transition: all .5s;
+    transition: all 0.5s;
     border-radius: 0 0 20px 20px;
   }
   .search-results {
     display: grid;
-    gap: 20px
+    gap: 20px;
   }
   .result {
     display: flex;
@@ -261,13 +371,13 @@ nav {
   .result img {
     max-width: 90px;
     border-radius: 14px;
-  } 
+  }
   .result .result-title {
-    font-family: 'Satoshi BD';
+    font-family: "Satoshi BD";
     font-size: 18px;
-  } 
-  .search input:focus {
-    outline: none;
+  }
+  .mobile-menu-btn {
+    display: none;
   }
 }
 
@@ -345,6 +455,47 @@ nav {
   }
 }
 
+/*add to cart msg*/
+
+@keyframes add-to-cart-msg {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.add-to-cart-msg {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.message-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: green;
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
+  font-family: "Satoshi BD";
+  max-width: 100%;
+  animation: add-to-cart-msg .5s ease-in-out;
+}
+
+.add-to-cart-remove {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .path {
   font-family: "Satoshi";
   display: flex;
@@ -377,6 +528,11 @@ nav {
   justify-content: center;
   max-width: 338px;
   max-height: 290px;
+  transition: all 1s;
+}
+
+.main-img img:hover {
+  transform: scale(1.15);
 }
 
 .img-list img {
@@ -428,7 +584,7 @@ nav {
   display: flex;
   align-items: center;
   padding: 10px;
-  font-family: 'Satoshi BD';
+  font-family: "Satoshi BD";
   gap: 10px;
 }
 
@@ -818,7 +974,7 @@ nav {
   width: 100%;
   height: 100%;
   background-color: black;
-  opacity: .9;
+  opacity: 0.9;
   color: white;
   display: flex;
   justify-content: center;
@@ -852,11 +1008,11 @@ nav {
 
 .add-review-form-after-submit span {
   color: white;
-  font-family: 'Satoshi BD';
+  font-family: "Satoshi BD";
 }
 .add-review-form-after-submit p {
   color: white;
-  font-family: 'Satoshi';
+  font-family: "Satoshi";
   font-size: 14px;
   margin-top: 5px;
 }
@@ -867,7 +1023,7 @@ nav {
 }
 
 .users-review-rate,
-.users-review-submit  {
+.users-review-submit {
   width: 348px;
   max-width: 100%;
   height: 42px;
@@ -888,10 +1044,8 @@ nav {
   cursor: pointer;
   background-color: rgb(6, 177, 6);
   color: white;
-  font-family: 'Satoshi BD';
+  font-family: "Satoshi BD";
 }
-
-
 
 .products-might-like-section h1 {
   font-size: 32px;

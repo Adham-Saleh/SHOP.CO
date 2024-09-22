@@ -190,7 +190,7 @@ nav {
     max-width: 100%;
   }
   .brand-name {
-    font-size: 12.5px;
+    font-size: 20px;
     font-weight: 700;
   }
   .nav-logo .bi-list,
@@ -974,6 +974,7 @@ hr {
 
 .users-review {
   display: flex;
+  justify-content: flex-start;
   gap: 16px;
   padding: 10px;
   overflow: hidden;
@@ -1009,7 +1010,7 @@ hr {
   border-radius: 20px;
 }
 
-@media (min-width: 1370px) {
+@media (min-width: 950px) {
   .review-content {
     width: 400px;
     height: 220px;

@@ -6,11 +6,9 @@ class SearchBarView extends View {
 
   searchBarSingleProducts(handler) {
     this._parentElement.addEventListener("click", (e) => {
-      this._searchField.focus();
       const product = e.target.closest(".result");
       if (!product) return;
-      console.log(product.dataset.id);
-      handler(product.dataset.id);
+      handler(`#${product.dataset.id}`);
     });
   }
 
@@ -31,7 +29,6 @@ class SearchBarView extends View {
     const markup = `${products
       .map((product) => this._generateSearchResultsMarkup(product))
       .join("")}`;
-    console.log(markup);
     this._parentElement.innerHTML = "";
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
     products.length > 0
