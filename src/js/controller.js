@@ -11,8 +11,9 @@ import ProductsMightLikeView from "./view/singleProductView/ProductsMightLikeVie
 import productReviewView from "./view/singleProductView/productReviewView.js";
 import CartView from "./view/cartView/CartView.js";
 import CartSummaryView from "./view/cartView/CartSummaryView.js";
-import MobileNavMenuView from "./view/MobileNavMenuView.js";
 import LandingView from "./view/LandingView.js";
+import SearchBarView from "./view/SearchBarView.js";
+import * as Template from "../main-templates/footerTemplate.js";
 
 let cart = [];
 const currentFocusedProduct = {
@@ -24,6 +25,12 @@ const currentFocusedProduct = {
   category: "",
   price: null,
   quantity: 1,
+};
+
+const buildFooter = function () {
+  document
+    .querySelector("body")
+    .insertAdjacentHTML("beforeend", Template.footerMarkup);
 };
 
 const getProducts = async function () {
@@ -86,10 +93,10 @@ const getSingleProductData = async function (id) {
     currentFocusedProduct.category = singleProduct.category;
     currentFocusedProduct.img = singleProduct.image;
     currentFocusedProduct.price = singleProduct.price;
-    ProductsView.generateSingleProductMarkup(singleProduct);
     fetchHomePageMightLikeProducts();
+    ProductsView.generateSingleProductMarkup(singleProduct);
   } catch (err) {
-    ProductsView.renderMsg(err + ' Bad Connection', true)
+    ProductsView.renderMsg(err + " Bad Connection", true);
   }
 };
 
@@ -147,16 +154,31 @@ const updateProductQuantity = function (productTimeStampId, productQuantity) {
   model.updateCartData(cart);
 };
 
+const searchResults = function (searchInput) {
+  if(!searchInput) return
+  const { results: allProducts } = model.productsResults;
+  const filter = allProducts.filter((product) =>
+    product.title.toLowerCase().includes(searchInput)
+  );
+  SearchBarView.generateSearchResults(filter)
+};
+
 const init = function () {
+  buildFooter();
   getProducts();
   getCartProducts();
   ProductsView.addHandlerOpenProducts(getSingleProductData);
+  ProductsMightLikeView.addHandlerChangeSingleProduct(getSingleProductData);
   ProductsView.addHandlerSelectColor(getCurrentProductInfo);
   ProductsView.addHandlerSelectSize(getCurrentProductInfo);
   ProductsView.addHandlerIncrementProductQuantity(getCurrentProductInfo);
   ProductsView.addHandlerAddToCart(addToCart);
   CartView.addHandlerRemoveProduct(addHandlerRemoveProducts);
-  CartView.addHandlerIncrementProductQuantity(updateProductQuantity, addHandlerRemoveProducts);
-  ProductsMightLikeView.addHandlerChangeSingleProduct(getSingleProductData);
+  CartView.addHandlerIncrementProductQuantity(
+    updateProductQuantity,
+    addHandlerRemoveProducts
+  );
+  SearchBarView.addHandlerSearchFieldInput(searchResults);
+  SearchBarView.searchBarSingleProducts(getSingleProductData)
 };
 init();

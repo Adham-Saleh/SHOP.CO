@@ -16,11 +16,13 @@ class NavBarView extends View {
   }
 
   _addHandlerOpenNavMenu() {
-    if(!this._parentElement) return
+    if (!this._parentElement) return;
     this._parentElement.addEventListener("click", (e) => {
       const menuBtn = e.target.closest(".mobile-menu-btn");
       if (!menuBtn) return;
-      Array.from(menuBtn.children).forEach(btn => btn.classList.toggle('hidden'))
+      Array.from(menuBtn.children).forEach((btn) =>
+        btn.classList.toggle("hidden")
+      );
       this._menuWindow.classList.toggle("hidden");
     });
   }
@@ -42,13 +44,15 @@ class NavBarView extends View {
       if (!newArrivalBtn) return;
       const goToSection = document.querySelector(`.${e.target.dataset.goto}`);
       this._menuWindow.classList.add("hidden");
-      console.log('A')
-      Array.from(this._parentElement.firstElementChild.firstElementChild.children).forEach(btn => btn.classList.toggle('hidden'))
+      Array.from(
+        this._parentElement.firstElementChild.firstElementChild.children
+      ).forEach((btn) => btn.classList.toggle("hidden"));
       goToSection.scrollIntoView({ behavior: "smooth" });
     });
   }
 
   addHandlerViewCartItemsCount(cartProductsCount) {
+    if (!this._parentElement) return;
     const navBtns = Array.from(this._parentElement.lastElementChild.children);
     const cartBtn = navBtns.filter((button) =>
       button.classList.contains("cart-container")

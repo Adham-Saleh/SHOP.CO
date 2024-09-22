@@ -175,6 +175,8 @@ class ProductView extends View {
             </div>
         `;
     this._clear();
+    document.querySelector('.product-category').textContent = product.category
+    document.title = product.title
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 }

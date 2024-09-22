@@ -13,7 +13,7 @@ class ShopMenuView extends View {
   }
 
   _addHandlerCloseShopMenu() {
-    if(!this._parentElement) return
+    if(!(this._parentElement.length > 0)) return
     this._parentElement[0].addEventListener("mouseout", () => {
       this._parentElement[0].classList.toggle("hidden");
     });

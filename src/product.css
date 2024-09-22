@@ -233,6 +233,39 @@ nav {
     background-color: #f0f0f0;
     border-radius: 0px 20px 20px 0px;
   }
+  .search-results-container {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    top: 50;
+    left: 0;
+    z-index: 1;
+    transition: all .5s;
+    border-radius: 0 0 20px 20px;
+  }
+  .search-results {
+    display: grid;
+    gap: 20px
+  }
+  .result {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .result img {
+    max-width: 90px;
+    border-radius: 14px;
+  } 
+  .result .result-title {
+    font-family: 'Satoshi BD';
+    font-size: 18px;
+  } 
   .search input:focus {
     outline: none;
   }
@@ -320,6 +353,11 @@ nav {
   padding: 10px;
   color: #00000099;
   font-size: 14px;
+}
+
+.path a {
+  text-decoration: none;
+  color: #00000099;
 }
 
 .current-path {
