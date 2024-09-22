@@ -183,10 +183,115 @@ nav {
   animation: cart-animation .5s ease-in-out;
 }
 
+/*nav for md devices*/
+@media (min-width: 768px) {
+  nav {
+    margin: auto 50px;
+    max-width: 100%;
+  }
+  .brand-name {
+    font-size: 12.5px;
+    font-weight: 700;
+  }
+  .nav-logo .bi-list,
+  .nav-btns .bi-search {
+    display: none;
+  }
+  .offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  .action {
+    display: flex;
+    position: relative;
+    left: 200;
+    cursor: pointer;
+  }
+  .nav-options {
+    display: flex;
+    max-width: 100%;
+    font-size: 12px;
+    justify-content: center;
+  }
+  .menu_options {
+    display: flex;
+    list-style-type: none;
+    gap: 15px;
+    align-items: center;
+    font-family: "Satoshi";
+  }
+  .menu_options li {
+    cursor: pointer;
+  }
+  .search-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .search-icon {
+    background-color: #f0f0f0;
+    padding: 9px;
+    border-radius: 20px 0px 0px 20px;
+  }
+  .search input {
+    height: 40px;
+    width: 300px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 0px 20px 20px 0px;
+  }
+  .search input:focus {
+    outline: none;
+  }
+  .search-results-container {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    top: 50;
+    left: 0;
+    z-index: 1;
+    transition: all .5s;
+    border-radius: 0 0 20px 20px;
+  }
+  .search-results {
+    display: grid;
+    gap: 20px
+  }
+  .result {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .result img {
+    max-width: 90px;
+    border-radius: 14px;
+  } 
+  .result .result-title {
+    font-family: 'Satoshi BD';
+    font-size: 18px;
+  } 
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
 /*nav for lg devices*/
 @media (min-width: 1370px) {
   nav {
     margin: auto 50px;
+  }
+  .brand-name {
+    font-size: 25.2px;
+    font-weight: 700;
   }
   .nav-logo .bi-list,
   .nav-btns .bi-search {
@@ -207,6 +312,7 @@ nav {
   .nav-options {
     display: flex;
     width: 100%;
+    font-size: 16px;
     justify-content: center;
   }
   .menu_options {
@@ -475,6 +581,67 @@ hr {
   padding: 15px;
 }
 
+@media (min-width:768px) {
+  .landing-section {
+    display: flex;
+    justify-content: center;
+  }
+  .landing-content {
+    max-width: 50%;
+  }
+  .landing-seciotn--img {
+    max-width: 50%;
+  }
+  .landing-section h1 {
+    max-width: 577px;
+    font-size: 33px;
+  }
+  .landing-section p {
+    max-width: 545px;
+    font-size: 12px;
+  }
+  .landing-content {
+    padding: 50px;
+  }
+  .landing-action {
+    justify-content: left;
+  }
+
+  .shop-btn {
+    font-size: 12px;
+  }
+
+  .landing-img {
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .star1 {
+    top: 86px;
+    left: 600px;
+  }
+  .star2 {
+    top: 297px;
+    left: 80px;
+  }
+  .happy-customers {
+    width: auto;
+    text-align: left;
+  }
+  .line {
+    display: flex;
+  }
+  .common-info p {
+    font-size: 20px;
+  }
+  .common-info span {
+    font-size: 12px;
+  }
+  .brands {
+    padding: 15px;
+    justify-content: space-around;
+  }
+}
+
 @media (min-width: 1370px) {
   .landing-section {
     display: flex;
@@ -501,6 +668,9 @@ hr {
     width: 210px;
     height: 52px;
     justify-content: left;
+  }
+  .shop-btn {
+    font-size: 16px;
   }
 
   .landing-img {
