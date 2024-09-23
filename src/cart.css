@@ -694,6 +694,16 @@ nav {
   cursor: pointer;
 }
 
+@media (min-width: 768px) {
+  .path {
+    font-size: 16px;
+    margin: 20px 140px;
+  }
+  .cart {
+    margin: auto 140px;
+  }
+}
+
 @media (min-width: 1370px) {
   .path {
     font-size: 16px;
@@ -702,12 +712,13 @@ nav {
   .cart {
     margin: auto 140px;
   }
-  .cart-heading {
-    font-size: 40px;
-  }
   .cart-product {
     width: 667px;
   }
+  .cart-heading {
+    margin: auto;
+    font-size: 40px;
+  } 
   .cart-products {
     width: 715px;
   }
