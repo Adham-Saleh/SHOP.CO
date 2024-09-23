@@ -697,14 +697,24 @@ nav {
 @media (min-width: 768px) {
   .path {
     font-size: 16px;
-    margin: 20px 250px;
+    margin: 20px 65px;
+  }
+  .cart-product {
+    width: 50%;
+  }
+  .cart-summary {
+    width: 50%;
   }
   .cart-heading {
-    margin: auto 120px;
-    font-size: 40px;
-  } 
-  .cart {
-    margin: auto 140px;
+    margin: auto 50px;
+    font-size: 32px;
+  }
+  .product-title {
+    font-size: 20px;
+    max-width: 530px;
+  }
+  .product-information {
+    font-size: 14px;
   }
 }
 
@@ -713,18 +723,21 @@ nav {
     font-size: 16px;
     margin: 20px 140px;
   }
-  .cart {
-    margin: auto 140px;
-  }
   .cart-product {
     width: 667px;
   }
   .cart-heading {
-    margin: auto;
+    margin: auto 120px;
     font-size: 40px;
   } 
   .cart-products {
     width: 715px;
+  }
+  .cart-product {
+    width: auto;
+  }
+  .cart-summary {
+    width: auto;
   }
   .product-img img {
     min-width: 124px;
